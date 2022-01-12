@@ -94,7 +94,8 @@ footer p {
 
 .code {
 	font-family: Monaco, "Lucida Console", monospace;
-	font-size: 18px;
+	font-size: 16px;
+	margin: 0;
 }
 
 code {
@@ -104,6 +105,10 @@ code {
   padding: .3rem .4rem .2rem;
   border-radius: .2rem;
 	white-space: nowrap;
+}
+
+#curl {
+	color: #06d6a0;
 }
 
 #card {
