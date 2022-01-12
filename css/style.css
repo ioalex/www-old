@@ -17,7 +17,7 @@ html, body {
 
 body {
   color: #E5E9F0;
-	font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Seoge UI", Roboto, Helvetica, Ubuntu, Cantarell, Arial, "Open Sans", "Helvetica Neue", sans-serif;
+	font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Seoge UI", Helvetica, "Helvetica Neue", Ubuntu, Roboto, Oxygen, Cantarell, "Fira Sans", "Droid Sans", noto, Arial, "Open Sans", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	text-align: left;
 }
@@ -94,7 +94,7 @@ footer p {
 }
 
 .code {
-	font-family: Monaco, "Lucida Console", monospace;
+	font-family: Monaco, Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
 	font-size: 16px;
 	margin: 0;
 }
@@ -161,6 +161,10 @@ li:before {
 
 li:hover {
 	font-size: 20px;
+}
+
+.service {
+	color: #85c2f9;
 }
 
 a, a:visited {
