@@ -1,0 +1,27 @@
+{
+  "name": "www",
+  "version": "1.0.0",
+  "description": "personal website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ioalex/www.git"
+  },
+  "keywords": [
+    "personal",
+    "website"
+  ],
+  "author": "Alex He <alex@alexhe.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ioalex/www/issues"
+  },
+  "homepage": "https://github.com/ioalex/www#readme",
+  "dependencies": {
+    "minify": "^8.0.3"
+  }
+}
