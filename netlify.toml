@@ -14,7 +14,7 @@
 
 [build]
   base = "/"
-  command = "pnpm build || ( npx pnpm install -r --store=node_modules/.pnpm-store && pnpm build )"
+  command = "pnpm build || ( npx pnpm install && pnpm build )"
 
 [build.environment]
   NPM_FLAGS="--prefix=/dev/null"
