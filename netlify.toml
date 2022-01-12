@@ -14,4 +14,36 @@
 
 [build]
   base = "/"
+  publish = "dist/"
   command = "pnpm build || ( npm install pnpm && pnpm build )"
+
+[build.processing]
+  skip_processing = false
+[build.processing.css]
+  bundle = true
+  minify = true
+[build.processing.js]
+  bundle = true
+  minify = true
+[build.processing.html]
+  pretty_urls = true
+[build.processing.images]
+  compress = true
+
+[[redirects]]
+  from = "/home"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/alex"
+  to = "/"
+  status = 301
+  force = true

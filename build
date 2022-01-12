@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-\sed "\$r home.html" card.html > tmpfile
-mv -f tmpfile index.html
+\sed "\$r ./src/home.html" ./misc/card-html > ./src/tmpfile
+mv -f ./src/tmpfile ./dist/index.html
 
 echo “Card inject script executed! 🎉”
