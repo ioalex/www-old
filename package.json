@@ -4,11 +4,20 @@
   "description": "personal website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "config": "pnpm config set enable-pre-post-scripts true",
-    "clean": "rm -rf dist",
-    "prebuild": "pnpm clean",
-    "build": "./build"
+    "clean": "rm -rf './dist'",
+    "directories": "mkdir -p './dist/js' './tmp'",
+    "css:sass": "pnpm sass -c ./src/scss/main.scss ./tmp/css/main.css",
+    "css:postcss": "pnpm postcss ./tmp/css/main.css -o ./dist/css/main.css -m --verbose",
+    "build:html": "pnpm html-minifier --input-dir ./src/html --output-dir ./tmp -c ./html-minifier.conf && ./card-html",
+    "build:css": "pnpm run-s css:sass css:postcss",
+    "build:js": "pnpm uglifyjs --verbose --source-map url ./src/js/*.js -o ./dist/js/main.js",
+    "build:favicons": "pnpm imagemin ./src/favicons/*.png --out-dir='./dist/favicons' && cp -v './src/favicons/favicon.ico' './dist'",
+    "build:misc": "cp -v './src/misc/card' './src/misc/CNAME' './dist'",
+    "prebuild": "run-s clean directories",
+    "build": "run-p build:*",
+    "postbuild": "rm -rf './tmp'",
+    "lint:scss": "pnpm stylelint '**/*.scss' --color"
   },
   "repository": {
     "type": "git",
@@ -25,8 +34,17 @@
     "url": "https://github.com/ioalex/www/issues"
   },
   "homepage": "https://github.com/ioalex/www#readme",
-  "dependencies": {
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "cssnano": "^5.0.15",
+    "html-minifier": "^4.0.0",
     "imagemin-cli": "^7.0.0",
-    "minify": "^8.0.3"
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.5",
+    "postcss-cli": "^9.1.0",
+    "postcss-preset-env": "^7.2.3",
+    "sass": "^1.47.0",
+    "stylelint": "^14.2.0",
+    "uglify-js": "^3.14.5"
   }
 }

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+echo 'Injecting card-html...'
+
+\sed "\$r ./tmp/index.html" ./src/misc/card-html > ./dist/index.html
+
+\sed "\$r ./tmp/web0.html" ./src/misc/card-html > ./dist/web0.html
+
+echo 'Card inject script executed! 🎉'

@@ -1,0 +1,111 @@
+/* || General styles */
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: $background;
+	justify-content: center;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  overscroll-behavior: none;
+  // -webkit-overflow-scrolling: touch;
+}
+
+#container {
+  min-height: 100%;
+  position: relative;
+}
+
+main {
+	padding: 15px;
+	margin: auto;
+	top: 15vh;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	height: auto;
+	width: 80vw;
+	max-width: 640px;
+	padding-bottom: 60px;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+li {
+  padding-left: 1em;
+  text-indent: -1em;
+	line-height: 1.2;
+	transition: all 80ms;
+}
+
+li:before {
+  content: "+";
+  padding-right: 5px;
+}
+
+li:hover {
+	font-size: 20px;
+}
+
+a, a:visited {
+	color: white;
+	text-decoration-color: #4C566A;
+
+  &:hover {
+	text-decoration-color: white;
+  }
+}
+
+.link-1:hover {
+	text-decoration-color: #B48EAD;
+}
+.link-2:hover {
+	text-decoration-color: #8FBCBB;
+}
+.link-3:hover {
+	text-decoration-color: #D08770;
+}
+.link-4:hover {
+	text-decoration-color: #A3BE8C;
+}
+.link-5:hover {
+	text-decoration-color: #EBCB8B;
+}
+.link-6:hover {
+	text-decoration-color: #BF616A;
+}
+.link-7:hover {
+	text-decoration-color: #5E81AC;
+}
+.link-8:hover {
+	text-decoration-color: #81A1C1;
+}
+.link-9:hover {
+	text-decoration-color: #88C0D0;
+}
+
+.link-10:hover {
+	text-decoration-color: #FFE787;
+}
