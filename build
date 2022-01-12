@@ -1,2 +1,6 @@
+#!/usr/bin/env bash
+
 \sed "\$r home.html" card.html > tmpfile
 mv -f tmpfile index.html
+
+echo “Card inject script executed! 🎉”
