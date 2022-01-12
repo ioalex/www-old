@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "config": "pnpm config set enable-pre-post-scripts true",
+    "clean": "rm -rf dist",
+    "prebuild": "pnpm clean",
     "build": "./build"
   },
   "repository": {
@@ -12,6 +15,7 @@
     "url": "git+https://github.com/ioalex/www.git"
   },
   "keywords": [
+    "alex",
     "personal",
     "website"
   ],
@@ -22,6 +26,7 @@
   },
   "homepage": "https://github.com/ioalex/www#readme",
   "dependencies": {
+    "imagemin-cli": "^7.0.0",
     "minify": "^8.0.3"
   }
 }

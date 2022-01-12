@@ -15,7 +15,7 @@
 [build]
   base = "/"
   publish = "dist/"
-  command = "pnpm build || ( npm install pnpm && pnpm build )"
+  command = "pnpm run config && pnpm build || ( npm install pnpm && pnpm run config && pnpm build )"
 
 [build.processing]
   skip_processing = false
