@@ -1,0 +1,4 @@
+dist
+node_modules
+src/styles/1-plugins/**
+src/styles/2-base/_normalize.scss
