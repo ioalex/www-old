@@ -17,7 +17,8 @@ html, body {
 
 body {
   color: #E5E9F0;
-	font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Seoge UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Seoge UI", Roboto, Helvetica, Ubuntu, Cantarell, Arial, "Open Sans", "Helvetica Neue", sans-serif;
+	-webkit-font-smoothing: antialiased;
 	text-align: left;
 }
 
@@ -150,11 +151,16 @@ li {
   padding-left: 1em;
   text-indent: -1em;
 	line-height: 1.2;
+	transition: all 80ms;
 }
 
 li:before {
   content: "+";
   padding-right: 5px;
+}
+
+li:hover {
+	font-size: 20px;
 }
 
 a, a:visited {
