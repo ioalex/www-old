@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-	background-color: #282828;
+	background-color: #2E3440;
 	justify-content: center;
 }
 
@@ -16,7 +16,7 @@ html, body {
 }
 
 body {
-  color: #d4be98;
+  color: #E5E9F0;
 	font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Seoge UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 	text-align: left;
 }
