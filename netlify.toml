@@ -14,7 +14,4 @@
 
 [build]
   base = "/"
-  command = "pnpm build || ( npx pnpm install && pnpm build )"
-
-[build.environment]
-  NPM_FLAGS="--prefix=/dev/null"
+  command = "pnpm build || ( npm install pnpm && pnpm build )"
