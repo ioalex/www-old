@@ -5,7 +5,7 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "no-referrer"
-    Content-Security-Policy = "default-src 'none'; script-src 'self' https://cdnjs.cloudflare.com; connect-src 'self'; img-src 'self'; style-src 'self'; base-uri 'self'; font-src 'self'; frame-src 'self'; form-action 'self';"
+    Content-Security-Policy = "default-src 'none'; script-src-elem 'self' https://cdnjs.cloudflare.com https://cloudfront.net *.cloudfront.net; script-src 'self' https://cdnjs.cloudflare.com https://cloudfront.net; connect-src 'self'; img-src 'self' https://gossipsweb.net/images/ https://cloudfront.net *.cloudfront.net; style-src-elem 'self' https://cloudfront.net *.cloudfront.net; style-src 'self' 'sha256-z8svcPpzK4DzYPsXNLt+Ycnf7ZWWMgaV1WgM+hCyt+g=' https://cloudfront.net *.cloudfront.net; base-uri 'self'; font-src 'self'; frame-src 'self'; form-action 'self';"
     # Permissions-Policy= "encrypted-media=(src); accelerometer=(); ambient-light-sensor=(); autoplay=(); camera=(); fullscreen=(self); geolocation=(); gyroscope=(); magnetometer=(); microphone=(); midi=(); payment=(self); picture-in-picture=(); speaker=(); sync-xhr=(); usb=(); vr=();"
     # Feature Policy is to be renamed to Permissions-Policy, however it is widely unsupported in majority of browsers.
     # Browser payment may be used.
