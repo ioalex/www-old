@@ -12,10 +12,14 @@
     Feature-Policy = "accelerometer 'none'; ambient-light-sensor 'none'; autoplay 'none'; camera 'none'; encrypted-media 'src'; fullscreen 'self'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; midi 'none'; payment 'self'; picture-in-picture 'none'; speaker 'none'; sync-xhr 'none'; usb 'none'; vr 'none';"
     Set-Cookie = "SameSite=Strict; Secure"
 
+[build.environment]
+  NODE_VERSION = "14"
+  NPM_FLAGS = "--prefix=/dev/null"
+
 [build]
   base = "/"
   publish = "dist/"
-  command = "pnpm run config && pnpm build || ( npm install pnpm && pnpm run config && pnpm build )"
+  command = "pnpm i && pnpm run config && pnpm build || ( npx pnpm i --store=node_modules/.pnpm-store && npx pnpm run config && npx pnpm build)"
 
 [build.processing]
   skip_processing = false
