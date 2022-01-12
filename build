@@ -1,0 +1,2 @@
+\sed "\$r home.html" card.html > tmpfile
+mv -f tmpfile index.html
