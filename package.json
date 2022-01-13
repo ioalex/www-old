@@ -8,16 +8,26 @@
     "clean": "rm -rf './dist'",
     "directories": "mkdir -p './dist/js' './tmp'",
     "css:sass": "pnpm sass -c ./src/scss/main.scss ./tmp/css/main.css",
-    "css:postcss": "pnpm postcss ./tmp/css/main.css -o ./dist/css/main.css -m --verbose",
-    "build:html": "pnpm html-minifier --input-dir ./src/html --output-dir ./tmp -c ./html-minifier.conf && ./card-html",
+    "css:postcss": "pnpm postcss ./tmp/css/main.css -o ./dist/css/main.css --verbose true",
+    "watch:html": "pnpm chokidar './src/html/**/*.html' -c 'mkdir -p './dist' && pnpm build:html' --verbose true",
+    "watch:sass": "pnpm sass -cw ./src/scss/main.scss ./tmp/css/main.css",
+    "watch:postcss": "pnpm postcss ./tmp/css/main.css -o ./dist/css/main.css -wm --verbose true",
+    "watch:css": "pnpm chokidar './src/scss/**/*.scss' -c 'pnpm run-s css:sass css:postcss' --verbose true",
+    "watch:js": "pnpm chokidar './src/js/**/*.js' -c 'mkdir './dist/js' && pnpm build:js' --verbose true",
+    "build:html": "pnpm html-minifier --input-dir ./src/html --output-dir ./tmp -c ./html-minifier.conf && ./bin/card-html",
     "build:css": "pnpm run-s css:sass css:postcss",
     "build:js": "pnpm uglifyjs --verbose --source-map url ./src/js/*.js -o ./dist/js/main.js",
     "build:favicons": "pnpm imagemin ./src/favicons/*.png --out-dir='./dist/favicons' && cp -v './src/favicons/favicon.ico' './dist'",
     "build:misc": "cp -v './src/misc/card' './src/misc/CNAME' './dist'",
     "prebuild": "run-s clean directories",
-    "build": "run-p build:*",
+    "build": "NODE_ENV=production run-p build:*",
     "postbuild": "rm -rf './tmp'",
-    "lint:scss": "pnpm stylelint '**/*.scss' --color"
+    "prestart": "pnpm prebuild",
+    "start": "NODE_ENV=development run-p build:*",
+    "poststart": "pnpm postbuild",
+    "lint:html": "htmlhint --config './htmlhintrc' 'dist/**/*.html'",
+    "lint:scss": "pnpm stylelint '**/*.scss' --color",
+    "lint:js": ""
   },
   "repository": {
     "type": "git",
@@ -36,15 +46,25 @@
   "homepage": "https://github.com/ioalex/www#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.2",
+    "browserslist": "^4.19.1",
+    "chokidar-cli": "^3.0.0",
     "cssnano": "^5.0.15",
     "html-minifier": "^4.0.0",
+    "htmlhint": "^1.1.0",
     "imagemin-cli": "^7.0.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.5",
     "postcss-cli": "^9.1.0",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-load-config": "^3.1.1",
+    "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^7.2.3",
     "sass": "^1.48.0",
     "stylelint": "^14.2.0",
     "uglify-js": "^3.14.5"
-  }
+  },
+  "browserslist": [
+    "defaults or dead",
+    "maintained node versions"
+  ]
 }
