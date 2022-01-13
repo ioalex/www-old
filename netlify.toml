@@ -6,7 +6,7 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "no-referrer"
     Content-Security-Policy = "default-src 'none'; script-src-elem 'self' https://cdnjs.cloudflare.com https://cloudfront.net *.cloudfront.net; script-src 'self' https://cdnjs.cloudflare.com https://cloudfront.net; connect-src 'self'; img-src 'self' https://gossipsweb.net/images/ https://cloudfront.net *.cloudfront.net; style-src-elem 'self' https://cloudfront.net *.cloudfront.net; style-src 'self' https://cloudfront.net *.cloudfront.net; base-uri 'self'; font-src 'self'; frame-src 'self'; form-action 'self';"
-    Permissions-Policy: "accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), cross-origin-isolated=(), display-capture=(), document-domain=(), encrypted-media=(), execution-while-not-rendered=(), execution-while-out-of-viewport=(), fullscreen=(self), geolocation=(), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), navigation-override=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), web-share=(self), xr-spatial-tracking=();"
+    Permissions-Policy = "accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), cross-origin-isolated=(), display-capture=(), document-domain=(), encrypted-media=(), execution-while-not-rendered=(), execution-while-out-of-viewport=(), fullscreen=(self), geolocation=(), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), navigation-override=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), web-share=(self), xr-spatial-tracking=();"
     Set-Cookie = "SameSite=Strict; Secure"
 
 [build.environment]
