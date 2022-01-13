@@ -1,4 +1,5 @@
+# Ignore artifacts:
 dist
+tmp
 node_modules
-src/styles/1-plugins/**
-src/styles/2-base/_normalize.scss
+src/scss/1-plugins/**
