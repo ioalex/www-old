@@ -9,7 +9,7 @@ specifiers:
   postcss: ^8.4.5
   postcss-cli: ^9.1.0
   postcss-preset-env: ^7.2.3
-  sass: ^1.47.0
+  sass: ^1.48.0
   stylelint: ^14.2.0
   uglify-js: ^3.14.5
 
@@ -22,7 +22,7 @@ devDependencies:
   postcss: 8.4.5
   postcss-cli: 9.1.0_postcss@8.4.5
   postcss-preset-env: 7.2.3_postcss@8.4.5
-  sass: 1.47.0
+  sass: 1.48.0
   stylelint: 14.2.0
   uglify-js: 3.14.5
 
@@ -3832,8 +3832,8 @@ packages:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
     dev: true
 
-  /sass/1.47.0:
-    resolution: {integrity: sha512-GtXwvwgD7/6MLUZPnlA5/8cdRgC9SzT5kAnnJMRmEZQFRE3J56Foswig4NyyyQGsnmNvg6EUM/FP0Pe9Y2zywQ==}
+  /sass/1.48.0:
+    resolution: {integrity: sha512-hQi5g4DcfjcipotoHZ80l7GNJHGqQS5LwMBjVYB/TaT0vcSSpbgM8Ad7cgfsB2M0MinbkEQQPO9+sjjSiwxqmw==}
     engines: {node: '>=8.9.0'}
     hasBin: true
     dependencies:
