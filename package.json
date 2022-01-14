@@ -7,17 +7,17 @@
     "config": "pnpm config set enable-pre-post-scripts true",
     "clean": "rm -rf './dist'",
     "directories": "mkdir -p './dist/js' './tmp'",
-    "css:sass": "pnpm sass -c ./src/scss/main.scss ./tmp/css/main.css",
-    "css:postcss": "pnpm postcss ./tmp/css/main.css -o ./dist/css/main.css --verbose true",
-    "watch:html": "pnpm chokidar './src/html/**/*.html' -c 'mkdir -p './dist' && pnpm build:html' --verbose true",
-    "watch:sass": "pnpm sass -cw ./src/scss/main.scss ./tmp/css/main.css",
-    "watch:postcss": "pnpm postcss ./tmp/css/main.css -o ./dist/css/main.css -wm --verbose true",
-    "watch:css": "pnpm chokidar './src/scss/**/*.scss' -c 'pnpm run-s css:sass css:postcss' --verbose true",
-    "watch:js": "pnpm chokidar './src/js/**/*.js' -c 'mkdir './dist/js' && pnpm build:js' --verbose true",
-    "build:html": "pnpm html-minifier --input-dir ./src/html --output-dir ./tmp -c ./html-minifier.conf && ./bin/card-html",
-    "build:css": "pnpm run-s css:sass css:postcss",
-    "build:js": "pnpm uglifyjs --verbose --source-map url ./src/js/*.js -o ./dist/js/main.js",
-    "build:favicons": "pnpm imagemin ./src/favicons/*.png --out-dir='./dist/favicons' && cp -v './src/favicons/favicon.ico' './dist'",
+    "css:sass": "sass -c ./src/scss/main.scss ./tmp/css/main.css",
+    "css:postcss": "postcss ./tmp/css/main.css -o ./dist/css/main.css --verbose true",
+    "watch:html": "chokidar './src/html/**/*.html' -c 'mkdir -p './dist' && pnpm build:html' --verbose true",
+    "watch:sass": "sass -cw ./src/scss/main.scss ./tmp/css/main.css",
+    "watch:postcss": "postcss ./tmp/css/main.css -o ./dist/css/main.css -wm --verbose true",
+    "watch:css": "chokidar './src/scss/**/*.scss' -c 'pnpm run-s css:sass css:postcss' --verbose true",
+    "watch:js": "chokidar './src/js/**/*.js' -c 'mkdir './dist/js' && pnpm build:js' --verbose true",
+    "build:html": "html-minifier --input-dir ./src/html --output-dir ./tmp -c ./html-minifier.conf && ./bin/card-html",
+    "build:css": "run-s css:sass css:postcss",
+    "build:js": "uglifyjs --verbose --source-map url ./src/js/*.js -o ./dist/js/main.js",
+    "build:favicons": "imagemin ./src/favicons/*.png --out-dir='./dist/favicons' && cp -v './src/favicons/favicon.ico' './dist'",
     "build:misc": "cp -v './src/misc/card' './src/misc/CNAME' './dist'",
     "prebuild": "run-s clean directories",
     "build": "NODE_ENV=production run-p build:*",
@@ -25,9 +25,15 @@
     "prestart": "pnpm prebuild",
     "start": "NODE_ENV=development run-p build:*",
     "poststart": "pnpm postbuild",
-    "lint:html": "htmlhint --config './htmlhintrc' 'dist/**/*.html'",
-    "lint:scss": "pnpm stylelint '**/*.scss' --color",
-    "lint:js": ""
+    "lint:html": "NODE_ENV=development htmlhint 'src/**/*.html'",
+    "lint:scss": "NODE_ENV=development stylelint '**/*.scss' -o ./logs/stylelint.log --color",
+    "lint:js": "NODE_ENV=development eslint './src/js/**/*.js'",
+    "lint:format": "NODE_ENV=development prettier -c .",
+    "lint": "NODE_ENV=development run-s lint:*",
+    "fix:scss": "NODE_ENV=development stylelint --fix '**/*.scss' -o ./logs/stylelint.log --color",
+    "fix:js": "NODE_ENV=development eslint --fix './src/js/**/*.js'",
+    "fix": "NODE_ENV=development run-s fix:* format",
+    "format": "prettier -w ."
   },
   "repository": {
     "type": "git",
@@ -49,6 +55,11 @@
     "browserslist": "^4.19.1",
     "chokidar-cli": "^3.0.0",
     "cssnano": "^5.0.15",
+    "eslint": "^8.6.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
     "html-minifier": "^4.0.0",
     "htmlhint": "^1.1.0",
     "imagemin-cli": "^7.0.0",
@@ -59,12 +70,56 @@
     "postcss-load-config": "^3.1.1",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^7.2.3",
+    "prettier": "^2.5.1",
     "sass": "^1.48.0",
     "stylelint": "^14.2.0",
+    "stylelint-a11y": "^1.2.3",
+    "stylelint-color-format": "^1.1.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-sass-guidelines": "^9.0.1",
+    "stylelint-config-standard-scss": "^3.0.0",
+    "stylelint-no-unsupported-browser-features": "^5.0.2",
+    "stylelint-prettier": "^2.0.0",
+    "stylelint-sass-render-errors": "^3.0.0",
+    "stylelint-scss": "^4.1.0",
+    "stylelint-selector-no-empty": "^1.0.8",
     "uglify-js": "^3.14.5"
   },
   "browserslist": [
-    "defaults or dead",
+    "defaults",
+    "not IE 11",
     "maintained node versions"
-  ]
+  ],
+  "eslintConfig": {
+    "extends": [
+      "airbnb-base",
+      "prettier"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": [
+        "error"
+      ]
+    },
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "ignorePatterns": [
+      "dist/",
+      "tmp/",
+      "bin/",
+      "logs/",
+      "node_modules/",
+      "src/js/vendors/**"
+    ]
+  },
+  "prettier": {
+    "semi": true,
+    "trailingComma": "all",
+    "singleQuote": false,
+    "printWidth": 80
+  }
 }
