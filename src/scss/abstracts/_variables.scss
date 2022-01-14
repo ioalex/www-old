@@ -1,0 +1,121 @@
+/* stylelint-disable color-named -- Disable color-named as stylelint behaves as if color names have been used due to our get-color function. */
+
+@use "functions" as func;
+
+/* || Colours
+
+Resource: https://www.colorhexa.com/
+
+*/
+
+$text-colors: (
+  blue: (
+    light-grayish: hsl(218deg 27% 92%),
+    dark-grayish: hsl(220deg 16% 22%),
+    soft: hsl(208deg 91% 75%),
+  ),
+  gray: (
+    dark: hsl(0deg 0% 11%),
+  ),
+  green: (
+    lime: hsl(164deg 95% 43%),
+  ),
+  white: (
+    base: hsl(0deg 0% 100%),
+  ),
+);
+$link-colors: (
+  blue: (
+    dark-moderate: hsl(213deg 32% 52%),
+    desaturated: hsl(210deg 34% 63%),
+  ),
+  cyan: (
+    desaturated: hsl(193deg 43% 67%),
+    grayish: hsl(179deg 25% 65%),
+  ),
+  green: (
+    desaturated: hsl(92deg 28% 65%),
+  ),
+  orange: (
+    soft: hsl(40deg 71% 73%),
+  ),
+  magenta: (
+    grayish: hsl(311deg 20% 63%),
+  ),
+  red: (
+    desaturated-1: hsl(14deg 51% 63%),
+    desaturated-2: hsl(354deg 42% 56%),
+  ),
+  yellow: (
+    light: hsl(48deg 100% 76%),
+  ),
+);
+$white: func.get-color($text-colors, white, base);
+$white-variant: func.get-color($text-colors, blue, light-grayish);
+$lime-green: func.get-color($text-colors, green, lime);
+$soft-blue: func.get-color($text-colors, blue, soft);
+$gray-blue: func.get-color($text-colors, blue, dark-grayish);
+$dark-gray: func.get-color($text-colors, gray, dark);
+
+/* || Colours: Background */
+$background-color-default: $gray-blue;
+$terminal-command-background: $dark-gray;
+
+/* || Colours: Text */
+$text-color-default: $white;
+$text-heading-color-default: $white-variant;
+$text-special-default: $lime-green;
+$text-contrast-variant-default: $soft-blue;
+
+/* || Colours: Links */
+$link-color-default: $white;
+$link-decoration-color-default: hsl(220deg 16% 36%);
+$link-decoration-interact-color-default: $link-color-default;
+
+/* || Colors: Component - Terminal Command */
+
+$command-interact-color: hsl(35deg 100% 50%);
+$copy-button-text-color: $white;
+
+/* || Fonts */
+
+$font-stack: (
+  "Source Sans Pro",
+  -apple-system,
+  blinkmacsystemfont,
+  "Seoge UI",
+  "Helvetica",
+  "Helvetica Neue",
+  "Ubuntu",
+  "Roboto",
+  "Oxygen",
+  "Cantarell",
+  "Fira Sans",
+  "Droid Sans",
+  "Arial",
+  "Open Sans",
+  sans-serif,
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol"
+);
+$monospace-font-stack: (
+  "Monaco",
+  "Menlo",
+  "Consolas",
+  "Liberation Mono",
+  "Lucida Console",
+  monospace
+);
+
+/* || Font Sizes */
+
+$text-font-size: 20px;
+$h1-font-size: (1.6 * $text-font-size);
+$h2-font-size: (1.2 * $text-font-size);
+$monospace-text-font-size: 16px;
+$footer-text-size: (0.8 * $text-font-size);
+
+/* || Positioning */
+
+$main-footer-distance: 60px;

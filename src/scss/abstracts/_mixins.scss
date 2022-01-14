@@ -1,0 +1,30 @@
+@mixin font-weight($weight) {
+  $weights: (
+    extra-light: 200,
+    light: 300,
+    regular: 400,
+    semi-bold: 600,
+    bold: 700,
+    black: 900,
+  );
+  $output: $weight;
+
+  @if map-has-key($weights, $weight) {
+    $output: map-get($weights, $weight);
+  }
+
+  font-weight: $output;
+}
+
+@mixin abs-pos($top: auto, $left: auto, $right: auto, $bottom: auto) {
+  bottom: $bottom;
+  left: $left;
+  position: absolute;
+  right: $right;
+  top: $top;
+}
+
+@mixin line-height($heightValue: 16) {
+  line-height: $heightValue + px;
+  line-height: (0.0625 * $heightValue) + rem;
+}

@@ -1,0 +1,59 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mixin;
+@use "../abstracts/placeholders";
+
+body {
+  font-family: var.$font-stack;
+  -webkit-font-smoothing: antialiased;
+  font-stretch: 100%;
+  font-style: normal;
+  text-align: left;
+}
+
+h1 {
+  @extend %heading;
+
+  font-size: var.$h1-font-size;
+  margin: 15px 0 0;
+}
+
+h2 {
+  @extend %heading;
+
+  font-size: var.$h2-font-size;
+  margin: 0;
+
+  &::before {
+    content: "/";
+  }
+}
+
+p {
+  @include mixin.font-weight(light);
+  @include mixin.line-height(50);
+
+  font-size: var.$text-font-size;
+  margin: 10px 0 20px;
+
+  .text {
+    @include mixin.line-height(30);
+
+    strong {
+      @include mixin.font-weight(regular);
+    }
+
+    em {
+      @include mixin.font-weight(extra-light);
+    }
+  }
+
+  .text-style-code {
+    font-family: var.$monospace-font-stack;
+    font-size: var.$monospace-text-font-size;
+    margin: 0;
+
+    .text--special {
+      @include mixin.font-weight(regular);
+    }
+  }
+}

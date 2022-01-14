@@ -1,0 +1,43 @@
+/* stylelint-disable a11y/media-prefers-color-scheme -- Disable a11y/media-prefers-color-scheme for this theme. */
+
+@use "../abstracts/variables" as var;
+@use "../abstracts/functions" as func;
+
+/* || Light Theme */
+
+@media screen and (prefers-color-scheme: light) {
+  *,
+  *::before,
+  *::after {
+    background-color: invert(var.$background-color-default);
+  }
+
+  body,
+  p {
+    color: invert(var.$text-color-default);
+  }
+
+  h1,
+  h2 {
+    color: invert(var.$text-heading-color-default);
+  }
+
+  .text--special {
+    color: invert(var.$text-special-default);
+  }
+
+  .text--contrast {
+    color: invert(var.$text-contrast-variant-default);
+  }
+
+  a,
+  a:visited {
+    color: invert(var.$link-color-default);
+    text-decoration-color: invert(var.$link-decoration-color-default);
+  }
+
+  a:hover,
+  a:focus {
+    text-decoration-color: invert(var.$link-decoration-interact-color-default);
+  }
+}

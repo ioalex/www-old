@@ -1,0 +1,61 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/functions" as func;
+
+/* || Default: Dark Theme */
+
+@media screen and (prefers-color-scheme: dark) {
+  *,
+  *::before,
+  *::after {
+    background-color: var.$background-color-default;
+  }
+
+  body,
+  p {
+    color: var.$text-color-default;
+  }
+
+  h1,
+  h2 {
+    color: var.$text-heading-color-default;
+  }
+
+  .text--special {
+    color: var.$text-special-default;
+  }
+
+  .text--contrast {
+    color: var.$text-contrast-variant-default;
+  }
+
+  a,
+  a:visited {
+    color: var.$link-color-default;
+    text-decoration-color: var.$link-decoration-color-default;
+  }
+
+  a:hover,
+  a:focus {
+    text-decoration-color: var.$link-decoration-interact-color-default;
+  }
+}
+
+$links: (
+  "1" func.get-color(var.$link-colors, magenta, grayish),
+  "2" func.get-color(var.$link-colors, cyan, grayish),
+  "3" func.get-color(var.$link-colors, red, desaturated-1),
+  "4" func.get-color(var.$link-colors, green, desaturated),
+  "5" func.get-color(var.$link-colors, orange, soft),
+  "6" func.get-color(var.$link-colors, red, desaturated-2),
+  "7" func.get-color(var.$link-colors, blue, dark-moderate),
+  "8" func.get-color(var.$link-colors, blue, desaturated),
+  "9" func.get-color(var.$link-colors, cyan, desatured),
+  "10" func.get-color(var.$link-colors, yellow, light)
+);
+
+@each $name, $color in $links {
+  .link-#{$name}:hover,
+  .link-#{$name}:focus {
+    text-decoration-color: $color;
+  }
+}

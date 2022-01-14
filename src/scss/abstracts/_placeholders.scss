@@ -1,0 +1,9 @@
+@use "variables" as var;
+@use "mixins" as mixin;
+
+%heading {
+  @include mixin.font-weight(semi-bold);
+
+  line-height: 1.2;
+  margin-bottom: 0.35em;
+}

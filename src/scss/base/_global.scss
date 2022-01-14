@@ -1,0 +1,96 @@
+@use "../abstracts/variables" as var;
+
+/* || General styles */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overscroll-behavior: none;
+}
+
+#container {
+  min-height: 100%;
+  position: relative;
+}
+
+main {
+  bottom: 0;
+  height: auto;
+  left: 0;
+  margin: auto;
+  max-width: 640px;
+  padding: 15px;
+  padding-bottom: var.$main-footer-distance;
+  right: 0;
+  top: 15vh;
+  width: 80vw;
+}
+
+img {
+  cursor: pointer;
+  max-width: 100%;
+  -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
+  user-select: none;
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  @media screen and (prefers-reduced-motion: reduce) {
+    li {
+      line-height: 1.2;
+      padding-left: 1em;
+      text-indent: -1em;
+      transition: none;
+
+      &::before {
+        content: "+";
+        padding-right: 5px;
+      }
+
+      &:hover,
+      &:focus {
+        font-size: var.$text-font-size;
+      }
+    }
+  }
+
+  li {
+    line-height: 1.2;
+    padding-left: 1em;
+    text-indent: -1em;
+    transition: all 80ms;
+
+    &::before {
+      content: "+";
+      padding-right: 5px;
+    }
+
+    &:hover,
+    &:focus {
+      font-size: var.$text-font-size;
+    }
+  }
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  li {
+    line-height: 1.2;
+    padding-left: 1em;
+    text-indent: -1em;
+    transition: none;
+  }
+}
