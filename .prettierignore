@@ -1,0 +1,14 @@
+# Ignore artifacts:
+dist
+tmp
+bin
+logs
+node_modules
+src/scss/vendors/**
+
+# No parser can be inferred for the following:
+.editorconfig
+.gitignore
+html-minifier.conf
+.prettierignore
+netlify.toml
