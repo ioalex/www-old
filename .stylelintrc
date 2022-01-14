@@ -1,7 +1,57 @@
 {
+  "defaultSeverity": "warning",
+  "reportDescriptionlessDisables": true,
+  "reportInvalidScopeDisables": true,
+  "reportNeedlessDisables": true,
+  "plugins": [
+    "stylelint-scss",
+    "stylelint-sass-render-errors",
+    "stylelint-no-unsupported-browser-features",
+    "stylelint-a11y",
+    "stylelint-selector-no-empty",
+    "stylelint-color-format",
+    "stylelint-prettier"
+  ],
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-sass-guidelines",
+    "stylelint-config-prettier"
+  ],
   "rules": {
+    "scss/no-global-function-names": null,
+    "plugin/sass-render-errors": true,
+    "plugin/no-unsupported-browser-features": null,
+    "a11y/content-property-no-static-value": null,
+    "a11y/font-size-is-readable": true,
+    "a11y/line-height-is-vertical-rhythmed": null,
+    "a11y/media-prefers-reduced-motion": true,
+    "a11y/media-prefers-color-scheme": true,
+    "a11y/no-display-none": true,
+    "a11y/no-obsolete-attribute": true,
+    "a11y/no-obsolete-element": true,
+    "a11y/no-spread-text": true,
+    "a11y/no-outline-none": true,
+    "a11y/no-text-align-justify": true,
+    "a11y/selector-pseudo-class-focus": true,
+    "plugin/stylelint-selector-no-empty": true,
+    "color-format/format": {
+      "format": "hsl"
+    },
+    "prettier/prettier": true,
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "comment-no-empty": null,
+    "scss/comment-no-empty": true,
     "selector-max-id": 1,
     "max-nesting-depth": 3,
     "selector-class-pattern": "^(?:(?:o|c|u|t|s|is|has|_|js|qa)-)?[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:\\[.+\\])?$"
-  }
+  },
+  "ignoreFiles": [
+    "dist",
+    "tmp",
+    "bin",
+    "logs",
+    "node_modules",
+    "src/scss/vendors/**"
+  ]
 }
