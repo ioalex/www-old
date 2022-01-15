@@ -69,11 +69,6 @@
       content="nopin"
       description="Sorry, no pins allowed!"
     />
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"
-      defer="defer"
-    ></script>
   </head>
   <body>
     <div id="container">
@@ -316,7 +311,7 @@
             >able business card:
           </p>
           <div class="terminal-command-container">
-            <pre><code class="terminal-command" id="terminal-command-text">curl -sL alex.cv/card</code></pre>
+            <pre><code class="terminal-command"><span id="terminal-command-text">curl -sL alex.cv/card</span></code></pre>
             <button
               class="copy-clipboard-button"
               name="copy"
@@ -336,6 +331,6 @@
       </footer>
     </div>
 
-    <script type="text/javascript" src="./js/main.js" defer="defer"></script>
+    <script type="text/javascript" src="./js/bundle.js" defer="defer"></script>
   </body>
 </html>
