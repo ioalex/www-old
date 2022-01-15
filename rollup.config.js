@@ -15,7 +15,10 @@ export default {
   plugins: [
     resolve(),
     commonjs(),
-    production && babel({ babelHelpers: "bundled" }),
+    production && babel({ 
+      babelHelpers: "bundled",
+      exclude: "node_modules/**"
+      }),
     production &&
       terser({
         format: {
