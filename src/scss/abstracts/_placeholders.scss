@@ -1,5 +1,5 @@
-@use "variables" as var;
-@use "mixins" as mixin;
+@use 'variables' as var;
+@use 'mixins' as mixin;
 
 %heading {
   @include mixin.font-weight(semi-bold);

@@ -1,5 +1,5 @@
-@use "sass:map";
+@use 'sass:map';
 
-@function get-color($scope, $color, $tone: "base") {
+@function get-color($scope, $color, $tone: 'base') {
   @return map.get(map.get($scope, $color), $tone);
 }

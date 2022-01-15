@@ -1,4 +1,4 @@
-@use "../abstracts/variables" as var;
+@use '../abstracts/variables' as var;
 
 /* || General styles */
 
@@ -57,7 +57,7 @@ ul {
       transition: none;
 
       &::before {
-        content: "+";
+        content: '+';
         padding-right: 5px;
       }
 
@@ -75,7 +75,7 @@ ul {
     transition: all 80ms;
 
     &::before {
-      content: "+";
+      content: '+';
       padding-right: 5px;
     }
 
