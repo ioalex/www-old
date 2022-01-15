@@ -1,0 +1,49 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/functions' as func;
+
+/* || Default: Dark Theme */
+
+@media screen and (prefers-color-scheme: dark) {
+  *,
+  *::before,
+  *::after {
+    background-color: func.get-color(var.$themes, dark, background-color);
+  }
+
+  body,
+  p {
+    color: func.get-color(var.$themes, dark, text-color);
+  }
+
+  h1,
+  h2 {
+    color: func.get-color(var.$themes, dark, text-heading-color);
+  }
+
+  .text--special {
+    color: func.get-color(var.$themes, dark, text-special-color);
+  }
+
+  .text--contrast {
+    color: func.get-color(var.$themes, dark, text-contrast-variant-color);
+  }
+
+  a,
+  a:visited {
+    color: func.get-color(var.$themes, dark, link-color);
+    text-decoration-color: func.get-color(
+      var.$themes,
+      dark,
+      link-decoration-color
+    );
+  }
+
+  a:hover,
+  a:focus {
+    text-decoration-color: func.get-color(
+      var.$themes,
+      dark,
+      link-decoration-color-interact
+    );
+  }
+}

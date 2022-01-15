@@ -1,6 +1,7 @@
 /* stylelint-disable a11y/media-prefers-color-scheme -- Disable a11y/media-prefers-color-scheme for this component as this component should look the same no matter the theme. */
 
-@use "../abstracts/variables" as var;
+@use '../abstracts/variables' as var;
+@use '../abstracts/functions' as func;
 
 .terminal-command-container {
   pre {
@@ -8,7 +9,11 @@
     display: inline-block;
 
     code {
-      background: var.$terminal-command-background;
+      background: func.get-color(
+        var.$themes,
+        default,
+        terminal-command-background
+      );
       border-radius: 0.2rem;
       box-decoration-break: clone;
       padding: 0.3rem 0.4rem 0.2rem;
@@ -21,24 +26,36 @@
 .terminal-command {
   &::before {
     background-color: inherit;
-    content: "$ ";
+    content: '$ ';
   }
+}
+
+#terminal-command-text {
+  background-color: inherit;
 
   &::selection {
-    background: var.$command-interact-color;
+    background: func.get-color(
+      var.$themes,
+      default,
+      terminal-command-interact-color
+    );
   }
 }
 
 .copy-clipboard-button {
   background-color: transparent;
   border: 0;
-  color: var.$copy-button-text-color;
+  color: func.get-color(var.$themes, default, copy-button-text-color);
   cursor: pointer;
   display: inline-block;
   user-select: none;
 
   &:hover,
   &:focus {
-    color: var.$command-interact-color;
+    color: func.get-color(
+      var.$themes,
+      default,
+      terminal-command-interact-color
+    );
   }
 }

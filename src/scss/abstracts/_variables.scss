@@ -1,6 +1,4 @@
-/* stylelint-disable color-named -- Disable color-named as stylelint behaves as if color names have been used due to our get-color function. */
-
-@use "functions" as func;
+@use 'functions' as func;
 
 /* || Colours
 
@@ -8,20 +6,33 @@ Resource: https://www.colorhexa.com/
 
 */
 
-$text-colors: (
-  blue: (
-    light-grayish: hsl(218deg 27% 92%),
-    dark-grayish: hsl(220deg 16% 22%),
-    soft: hsl(208deg 91% 75%),
+$white: hsl(0deg 0% 100%);
+$themes: (
+  light: (
+    background-color: invert(hsl(220deg 16% 22%)),
+    text-color: invert($white),
+    text-heading-color: invert(hsl(218deg 27% 92%)),
+    text-special-color: invert(hsl(164deg 95% 43%)),
+    text-contrast-variant-color: invert(hsl(208deg 91% 75%)),
+    link-color: invert($white),
+    link-decoration-color: invert(hsl(220deg 16% 36%)),
+    link-decoration-color-interact: invert($white),
+    terminal-command-background: hsl(0deg 0% 11%),
+    terminal-command-interact-color: hsl(35deg 100% 50%),
+    copy-button-text-color: invert($white),
   ),
-  gray: (
-    dark: hsl(0deg 0% 11%),
-  ),
-  green: (
-    lime: hsl(164deg 95% 43%),
-  ),
-  white: (
-    base: hsl(0deg 0% 100%),
+  dark: (
+    background-color: hsl(220deg 16% 22%),
+    text-color: $white,
+    text-heading-color: hsl(218deg 27% 92%),
+    text-special-color: hsl(164deg 95% 43%),
+    text-contrast-variant-color: hsl(208deg 91% 75%),
+    link-color: $white,
+    link-decoration-color: hsl(220deg 16% 36%),
+    link-decoration-color-interact: $white,
+    terminal-command-background: hsl(0deg 0% 11%),
+    terminal-command-interact-color: hsl(35deg 100% 50%),
+    copy-button-text-color: $white,
   ),
 );
 $link-colors: (
@@ -50,61 +61,35 @@ $link-colors: (
     light: hsl(48deg 100% 76%),
   ),
 );
-$white: func.get-color($text-colors, white, base);
-$white-variant: func.get-color($text-colors, blue, light-grayish);
-$lime-green: func.get-color($text-colors, green, lime);
-$soft-blue: func.get-color($text-colors, blue, soft);
-$gray-blue: func.get-color($text-colors, blue, dark-grayish);
-$dark-gray: func.get-color($text-colors, gray, dark);
-
-/* || Colours: Background */
-$background-color-default: $gray-blue;
-$terminal-command-background: $dark-gray;
-
-/* || Colours: Text */
-$text-color-default: $white;
-$text-heading-color-default: $white-variant;
-$text-special-default: $lime-green;
-$text-contrast-variant-default: $soft-blue;
-
-/* || Colours: Links */
-$link-color-default: $white;
-$link-decoration-color-default: hsl(220deg 16% 36%);
-$link-decoration-interact-color-default: $link-color-default;
-
-/* || Colors: Component - Terminal Command */
-
-$command-interact-color: hsl(35deg 100% 50%);
-$copy-button-text-color: $white;
 
 /* || Fonts */
 
 $font-stack: (
-  "Source Sans Pro",
+  'Source Sans Pro',
   -apple-system,
   blinkmacsystemfont,
-  "Seoge UI",
-  "Helvetica",
-  "Helvetica Neue",
-  "Ubuntu",
-  "Roboto",
-  "Oxygen",
-  "Cantarell",
-  "Fira Sans",
-  "Droid Sans",
-  "Arial",
-  "Open Sans",
+  'Seoge UI',
+  'Helvetica',
+  'Helvetica Neue',
+  'Ubuntu',
+  'Roboto',
+  'Oxygen',
+  'Cantarell',
+  'Fira Sans',
+  'Droid Sans',
+  'Arial',
+  'Open Sans',
   sans-serif,
-  "Apple Color Emoji",
-  "Segoe UI Emoji",
-  "Segoe UI Symbol"
+  'Apple Color Emoji',
+  'Segoe UI Emoji',
+  'Segoe UI Symbol'
 );
 $monospace-font-stack: (
-  "Monaco",
-  "Menlo",
-  "Consolas",
-  "Liberation Mono",
-  "Lucida Console",
+  'Monaco',
+  'Menlo',
+  'Consolas',
+  'Liberation Mono',
+  'Lucida Console',
   monospace
 );
 

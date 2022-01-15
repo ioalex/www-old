@@ -1,7 +1,5 @@
-/* stylelint-disable a11y/media-prefers-color-scheme -- Disable a11y/media-prefers-color-scheme for this theme. */
-
-@use "../abstracts/variables" as var;
-@use "../abstracts/functions" as func;
+@use '../abstracts/variables' as var;
+@use '../abstracts/functions' as func;
 
 /* || Light Theme */
 
@@ -9,35 +7,43 @@
   *,
   *::before,
   *::after {
-    background-color: invert(var.$background-color-default);
+    background-color: func.get-color(var.$themes, light, background-color);
   }
 
   body,
   p {
-    color: invert(var.$text-color-default);
+    color: func.get-color(var.$themes, light, text-color);
   }
 
   h1,
   h2 {
-    color: invert(var.$text-heading-color-default);
+    color: func.get-color(var.$themes, light, text-heading-color);
   }
 
   .text--special {
-    color: invert(var.$text-special-default);
+    color: func.get-color(var.$themes, light, text-special-color);
   }
 
   .text--contrast {
-    color: invert(var.$text-contrast-variant-default);
+    color: func.get-color(var.$themes, light, text-contrast-variant-color);
   }
 
   a,
   a:visited {
-    color: invert(var.$link-color-default);
-    text-decoration-color: invert(var.$link-decoration-color-default);
+    color: func.get-color(var.$themes, light, link-color);
+    text-decoration-color: func.get-color(
+      var.$themes,
+      light,
+      link-decoration-color
+    );
   }
 
   a:hover,
   a:focus {
-    text-decoration-color: invert(var.$link-decoration-interact-color-default);
+    text-decoration-color: func.get-color(
+      var.$themes,
+      light,
+      link-decoration-color-interact
+    );
   }
 }
