@@ -11,7 +11,7 @@
     code {
       background: func.get-color(
         var.$themes,
-        default,
+        defaults,
         terminal-command-background
       );
       border-radius: 0.2rem;
@@ -36,7 +36,7 @@
   &::selection {
     background: func.get-color(
       var.$themes,
-      default,
+      defaults,
       terminal-command-interact-color
     );
   }
@@ -45,7 +45,7 @@
 .copy-clipboard-button {
   background-color: transparent;
   border: 0;
-  color: func.get-color(var.$themes, default, copy-button-text-color);
+  color: func.get-color(var.$themes, dark, button-text-color);
   cursor: pointer;
   display: inline-block;
   user-select: none;
@@ -54,7 +54,7 @@
   &:focus {
     color: func.get-color(
       var.$themes,
-      default,
+      defaults,
       terminal-command-interact-color
     );
   }

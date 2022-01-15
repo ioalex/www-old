@@ -5,7 +5,6 @@
 Resource: https://www.colorhexa.com/
 
 */
-
 $white: hsl(0deg 0% 100%);
 $themes: (
   light: (
@@ -17,9 +16,7 @@ $themes: (
     link-color: invert($white),
     link-decoration-color: invert(hsl(220deg 16% 36%)),
     link-decoration-color-interact: invert($white),
-    terminal-command-background: hsl(0deg 0% 11%),
-    terminal-command-interact-color: hsl(35deg 100% 50%),
-    copy-button-text-color: invert($white),
+    button-text-color: invert($white),
   ),
   dark: (
     background-color: hsl(220deg 16% 22%),
@@ -30,10 +27,12 @@ $themes: (
     link-color: $white,
     link-decoration-color: hsl(220deg 16% 36%),
     link-decoration-color-interact: $white,
+    button-text-color: $white,
+  ),
+  defaults: (
     terminal-command-background: hsl(0deg 0% 11%),
     terminal-command-interact-color: hsl(35deg 100% 50%),
-    copy-button-text-color: $white,
-  ),
+  )
 );
 $link-colors: (
   blue: (
@@ -63,7 +62,6 @@ $link-colors: (
 );
 
 /* || Fonts */
-
 $font-stack: (
   'Source Sans Pro',
   -apple-system,
@@ -94,7 +92,6 @@ $monospace-font-stack: (
 );
 
 /* || Font Sizes */
-
 $text-font-size: 20px;
 $h1-font-size: (1.6 * $text-font-size);
 $h2-font-size: (1.2 * $text-font-size);
@@ -102,5 +99,4 @@ $monospace-text-font-size: 16px;
 $footer-text-size: (0.8 * $text-font-size);
 
 /* || Positioning */
-
 $main-footer-distance: 60px;
